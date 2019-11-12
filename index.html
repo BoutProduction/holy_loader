@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>HolyLoader × RSB Development</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://fast.fonts.net/cssapi/05893941-af1d-4c96-a1d0-0e0cb5b76cc2.css'><link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<canvas id="canvas"></canvas>
+
+
+<div class="title__container">
+  <svg width="1000px" height="400px" viewBox="50 -50 1000 300" color-interpolation-filters="sRGB" class="title__svg">
+    <defs>
+      <filter id="strangify">
+
+        <feTurbulence type="fractalNoise" baseFrequency=".013" numOctaves="1" seed="46"/>
+        <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1.1 0"/>
+        <feComposite operator="in" in="SourceGraphic" result="intermediate-1"/>
+
+
+        <feComponentTransfer>
+          <feFuncA type="table" tableValues="0 0 0 0 1 1 1"/>
+        </feComponentTransfer>
+         <feGaussianBlur stdDeviation="4"/>
+
+
+
+        <feComposite operator="over" in2="intermediate-1"/>
+      </filter>
+    </defs>
+
+    <g filter="url(#strangify)">
+    <rect x="240" y="0" fill="none" stroke="#ed2b12" stroke-width="1.5" width="653" height="6"/>
+    <rect x="240" y="160" fill="none" stroke="#ed2b12" stroke-width="1.5" width="110" height="6"/>
+    <rect x="787" y="160" fill="none" stroke="#ed2b12" stroke-width="1.5" width="110" height="6"/>
+    <text font-family="ITC Benguiat W01"  x="240" y="110" stroke="#ed2b12" fill="none" font-size="8rem" font-weight="800" stroke-width="2">
+      <tspan font-size="11rem" dy="31" dx="-0,0,0,0,-8,0">H</tspan>
+      <tspan font-size="8rem" dy="-31" dx="-45,0,0,0,-8,0">OLYSTAT</tspan>
+      <tspan font-size="11rem" dy="31" dx="-34">E</tspan>
+      <tspan font-size="6.1rem" dx="-570" dy="50">R</tspan>
+      <tspan font-size="6.1rem" dx="-37,0,0,-8,0,0,0" dy="0">OLEPLAY</tspan>
+    </text>
+    </g>
+
+  </svg>
+</div>
+
+  <script  src="./script.js"></script>
+
+    <audio id="leson" src="music/music.ogg" autoplay="true" hidden="true" loop="true"/>
+    <script>
+
+    var play = false;
+    var myAudio = document.getElementById("leson");
+    
+    myAudio.volume = 0.045;
+
+    function onKeyDown(event) {
+            switch (event.keyCode) {
+                case 32: //SpaceBar                    
+                    if (play) {
+                        myAudio.pause();
+                        play = false;
+                    } else {
+                        myAudio.play();
+                        play = true;
+                    }
+                    break;
+            }
+      return false;
+    }
+
+    window.addEventListener("keydown", onKeyDown, false);
+    </script>
+
+</body>
+</html>

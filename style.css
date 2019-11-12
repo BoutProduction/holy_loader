@@ -1,0 +1,18 @@
+body {
+  background-image: linear-gradient(to top, #082c45 35%, #0d7b96 42.5%, #1e93b3 50%, #24d9f9 100%);
+  overflow: hidden;
+}
+
+canvas {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.title__svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
